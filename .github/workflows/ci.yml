@@ -35,5 +35,5 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           script: 
-              docker rm -f resume
+              docker rm -f resume || true
               docker run -d --name resume -p 8080:5001 ${{secrets.REGISTRY_USER}}/my-portfolio:${{github.run_number}}
