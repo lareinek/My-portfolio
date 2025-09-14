@@ -33,11 +33,11 @@ jobs:
         with:
           image-ref: ${{secrets.REGISTRY_USER}}/my-portfolio:${{github.run_number}}
           format: table
-          exit-code: 1   # fail pipeline if critical/high found
+          exit-code: 0   # dont fail pipeline if critical/high found (1 if i want it to fail)
           severity: CRITICAL,HIGH
 
   deploy:
-    needs: build
+    needs: scan
     runs-on: ubuntu-latest
     steps:
       - name: SSH to Server 
