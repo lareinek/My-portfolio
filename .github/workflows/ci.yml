@@ -58,7 +58,7 @@ jobs:
               docker rm -f resume || true
               docker run -d --name resume -p 8080:5001 ${{secrets.REGISTRY_USER}}/my-portfolio:${{github.run_number}}
 
-     # --- PUSH AWS ECR ----
+     # --- PUSH AWS ECR ---
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
